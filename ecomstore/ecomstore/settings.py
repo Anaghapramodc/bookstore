@@ -78,17 +78,18 @@ WSGI_APPLICATION = 'ecomstore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecomstoredb',
-        'USER': 'root',
-        'PASSWORD': 'anagha123@A',
-        'HOST': 'localhost',
-        'PORT': 3306
+        'NAME': os.getenv('DATABASE_URL'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASS'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
