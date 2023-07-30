@@ -1,0 +1,65 @@
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+h1 {
+        color: #999999;
+        font-family: arial, sans-serif;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 0px;
+        margin-bottom: 1px;
+}
+
+input {
+  border: 3px solid white;">
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  padding: 8px;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+    </style>
+</head>
+<body style="background-image: url('{% static 'img_1.png' %}'); " >
+<div class="card-body" style="width: 30%; margin-left: 20%; margin-top: 5%;">
+
+
+
+<div class="card mb-3" style=" background-color:lightblue; height:390px; width:810px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+     <h1 class="card-title">Login</h1>
+
+       <form method="post">
+  {% csrf_token %}
+    {{form.as_p}}
+  <button type="submit" class="btn btn-success">Login</button>
+  <a class="btn btn-outline-info" href="{% url 'signup' %} role=button">Create account</a>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+</body>
+</html>
+
+{% endblock content %}

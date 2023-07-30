@@ -1,0 +1,100 @@
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+        color: #999999;
+        font-family: arial, sans-serif;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 0px;
+        margin-bottom: 1px;
+}
+
+input {
+  border: 3px solid white;">
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  padding: 8px;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+    </style>
+</head>
+<body style="background-image: url('{% static 'img_1.png' %}'); " >
+<div class="card-body" style="width: 30%; margin-left: 20%; margin-top: 5%;">
+
+
+
+<div class="card mb-3" style=" background-color:lightblue; height:390px; width:810px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+     <h1 class="card-title">Register</h1>
+
+    <form method="post" action="" id="reg">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_username">Username:</label>
+        <br>
+        <input type="text" name="username" placeholder="Username">
+        {% if form.errors.username %}
+            <p class="error"  style="color: red;">{{ form.errors.username }}</p>
+        {% endif %}
+    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="id_email">Email:</label>-->
+<!--        <br>-->
+<!--        <input type="email" name="email" placeholder="Email">-->
+<!--        {% if form.errors.email %}-->
+<!--            <p class="error">{{ form.errors.email }}</p>-->
+<!--        {% endif %}-->
+<!--    </div>-->
+    <div class="form-group">
+        <label for="id_password1">Password:</label>
+        <br>
+        <input type="password" name="password1" placeholder="Password">
+        {% if form.errors.password1 %}
+            <p class="error">{{ form.errors.password1 }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="id_password2">Confirm Password:</label>
+        <br>
+        <input type="password" name="password2" placeholder="Confirm Password">
+        {% if form.errors.password2 %}
+            <p class="error">{{ form.errors.password2 }}</p>
+        {% endif %}
+    </div>
+    <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Signup</button>
+    </div>
+</form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+</body>
+</html>
+
+{% endblock content %}
